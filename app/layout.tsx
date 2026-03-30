@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
           <Image
-            src="/sidgrove-logo.svg"
+            src="/sidgrove-logo.png"
             alt="Sidgrove"
             width={110}
             height={26}
