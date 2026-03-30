@@ -15,8 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Image
             src="/sidgrove-logo.png"
             alt="Sidgrove"
-            width={110}
-            height={26}
+            width={120}
+            height={30}
+            style={{ height: 22, width: 'auto' }}
             priority
           />
         </header>
