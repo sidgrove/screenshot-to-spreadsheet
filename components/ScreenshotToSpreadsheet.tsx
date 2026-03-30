@@ -41,8 +41,8 @@ export default function ScreenshotToSpreadsheet() {
   }
 
   React.useEffect(() => {
-    window.addEventListener('paste', handlePaste as EventListener)
-    return () => window.removeEventListener('paste', handlePaste as EventListener)
+    window.addEventListener('paste', handlePaste as unknown as EventListener)
+    return () => window.removeEventListener('paste', handlePaste as unknown as EventListener)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
