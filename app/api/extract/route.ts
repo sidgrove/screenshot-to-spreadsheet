@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
         messages: [{
           role: 'user',
           content: [
-            { type: 'image', source: { type: 'base64', media_type: type, data: base64 } },
+            { type: 'image', source: { type: 'base64', media_type: type as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp', data: base64 } },
             { type: 'text', text: 'Look at this image and extract any data that could be useful in a spreadsheet. Return it as a JSON array of arrays where the first array contains column headers and subsequent arrays contain the data rows. Return ONLY the JSON array, no other text. Format: [["Header1","Header2"],["Data1","Data2"]]' }
           ]
         }]
@@ -43,6 +43,7 @@ export async function POST(req: NextRequest) {
     }
     return NextResponse.json({ table: [headers, ...allRows] })
   } catch (err: unknown) {
+    console.error('[extract] error:', err)
     const msg = err instanceof Error ? err.message : 'Unknown error'
     return NextResponse.json({ error: msg }, { status: 500 })
   }
