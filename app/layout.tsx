@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -7,5 +8,20 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="en"><body>{children}</body></html>
+  return (
+    <html lang="en">
+      <body>
+        <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+          <Image
+            src="/sidgrove-logo.svg"
+            alt="Sidgrove"
+            width={110}
+            height={26}
+            priority
+          />
+        </header>
+        {children}
+      </body>
+    </html>
+  )
 }
